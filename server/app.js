@@ -11,9 +11,12 @@ app.use(cors())
 //将请求体转为json对象
 app.use(express.json())
 //托管静态资源
-app.use('/wzry', express.static(__dirname + '/web'))
-app.use('/wzry/back', express.static(__dirname + '/admin'))
-app.use('/uploads', express.static(__dirname + '/uploads'))
+// app.use('/wzry', express.static(__dirname + '/web'))
+// app.use('/wzry/back', express.static(__dirname + '/admin'))
+// app.use('/uploads', express.static(__dirname + '/uploads'))
+ app.use('/', express.static(__dirname + '/web'))
+ app.use('/back', express.static(__dirname + '/admin'))
+ app.use('/uploads', express.static(__dirname + '/uploads'))
 
 //连接数据库
 require('./plugins/db')(app)
