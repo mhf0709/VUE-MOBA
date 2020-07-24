@@ -19,7 +19,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 
 //连接数据库
 require('./plugins/db')(app)
-//后台管理 GRUD 接口
+//后台管理 CURD 接口
 require('./routes/admin/index')(app)
 //图片上传接口
 require('./routes/admin/imgUpload')(app, multer)

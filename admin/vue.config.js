@@ -11,6 +11,6 @@ module.exports = {
       }
     }
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '/wzry/back/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/back/' : '/',
   outputDir: __dirname + '/../server/admin'
 }
