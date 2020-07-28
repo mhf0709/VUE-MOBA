@@ -13,7 +13,7 @@ app.use(express.json())
 //托管静态资源
 //wzry域名
 app.use('/', express.static(__dirname + '/web'))
-app.use('/admin', express.static(__dirname + '/admin'))
+app.use('/back', express.static(__dirname + '/admin'))
 app.use('/uploads', express.static(__dirname + '/uploads'))
 
 
