@@ -543,8 +543,6 @@ i[class^="card-icon"] {
         .v-num {
           padding-left: 0;
         }
-        // .v-time {
-        // }
       }
     }
   }

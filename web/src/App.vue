@@ -1,13 +1,17 @@
 <template>
   <div id="app">
     <!-- 顶栏 -->
-    <top-bar v-if="isTopBarShow" class="top-bar" />
+    <top-bar v-if="isTopBarShow"
+             class="top-bar" />
 
     <!-- 导航栏 -->
-    <nav-bar v-if="isNavBarShow" class="main-nav" height="1.68rem" />
+    <nav-bar v-if="isNavBarShow"
+             class="main-nav"
+             height="1.68rem" />
 
     <!-- 路由 -->
-    <transition name="slide" mode="out-in">
+    <transition name="slide"
+                mode="out-in">
       <keep-alive>
         <router-view class="view" />
       </keep-alive>
@@ -19,6 +23,7 @@
 import TopBar from 'components/content/TopBar'
 import NavBar from 'components/content/NavBar'
 
+
 export default {
   name: 'app',
   components: {
@@ -26,24 +31,34 @@ export default {
     NavBar
   },
   computed: {
-    path() {
+    path () {
       return this.$route.path
     },
-    isTopBarShow() {
+    isTopBarShow () {
       return (this.path === '/home' || this.path === '/strategy' || this.path === '/race') || this.$store.state.isTopBarShow
     },
-    isNavBarShow() {
+    isNavBarShow () {
       return (this.path === '/home' || this.path === '/strategy' || this.path === '/race') || this.$store.state.isNavBarShow
     }
   },
-methods:{
-    tip(){
-    alert("使用手机浏览体验更好哦！")
+  methods: {
+    tip () {
+      if(document.documentElement.clientWidth > 600){
+      alert("请使用手机打开本页面本页面，以保证浏览效果！")
+      const img = document.createElement('img')
+      img.src = '/code.png'
+      img.style.position = 'fixed';
+      img.style.left = '50%'
+      img.style.top = '50%'
+      img.style.transform = 'translate(-50%, -50%)'
+      img.style.boxShadow = '0 0 10px rgba(0,0,0,0.25)'
+      document.body.appendChild(img)
+    }
+    }
+  },
+  mounted () {
+    this.tip()
   }
-},
-mounted(){
-  this.tip()
-}
 
 }
 </script>
